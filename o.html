@@ -1,0 +1,7 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>管理画面</title>
+<style>:root{--b:#fbf7f1;--f:#2d2620;--a:#c4640f}@media (prefers-color-scheme:dark){:root{--b:#1b1a17;--f:#ece6dc;--a:#f0953f}}body{background:var(--b);color:var(--f);margin:0;padding:16px;font:15px/1.7 system-ui,sans-serif}main{max-width:760px;margin:0 auto}h1{margin:0}h2{color:var(--a);margin:26px 0 6px;font-size:18px}h3{font-size:15px;margin:12px 0 4px}.m{opacity:.7;margin:0}ul{padding-left:1.2em;margin:4px 0}.w{overflow-x:auto}table{border-collapse:collapse;width:100%}td,th{padding:5px 7px;border-bottom:1px solid rgba(128,128,128,.3);text-align:left;font-size:13px}</style></head>
+<body><main id="m">開いています…</main><script>
+(async()=>{const m=document.getElementById('m');try{const d=s=>Uint8Array.from(atob(s.replace(/-/g,'+').replace(/_/g,'/')),c=>c.charCodeAt(0));
+const k=await crypto.subtle.importKey('raw',d(location.hash.slice(1)),'AES-GCM',false,['decrypt']);const b=d((await (await fetch('o.dat',{cache:'no-store'})).text()).trim());
+const h=new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b.slice(0,12)},k,b.slice(12)));document.open();document.write(h);document.close()}catch(x){m.textContent='このページは本人用です。'}})()
+</script></body></html>
